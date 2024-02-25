@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To-Do App</title>
     <style>
+        /* CSS Styles */
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: #f0f0f0;
@@ -99,6 +100,9 @@
     </div>
 
     <script>
+        // JavaScript Functions
+
+        // Function to add a new task
         function addTask() {
             const newTaskInput = document.getElementById('newTask');
             const taskText = newTaskInput.value.trim();
@@ -111,6 +115,7 @@
             }
         }
 
+        // Function to create a task element
         function createTaskElement(taskText) {
             const li = document.createElement('li');
             const taskSpan = document.createElement('span');
@@ -146,12 +151,14 @@
             return li;
         }
 
+        // Function to get a formatted timestamp
         function getFormattedTimestamp() {
             const now = new Date();
             const options = { hour: 'numeric', minute: 'numeric', second: 'numeric' };
             return now.toLocaleString('en-US', options);
         }
 
+        // Function to create a button
         function createButton(text, clickHandler) {
             const button = document.createElement('button');
             button.textContent = text;
@@ -159,6 +166,7 @@
             return button;
         }
 
+        // Function to mark a task as completed or pending
         function completeTask(taskElement) {
             taskElement.classList.toggle('completed-task');
             const completeButton = taskElement.querySelector('.task-buttons button:nth-child(1)');
@@ -168,6 +176,7 @@
             document.getElementById(destinationList).appendChild(taskElement);
         }
 
+        // Function to edit a task
         function editTask(taskElement) {
             const taskSpan = taskElement.querySelector('span');
             const newTaskText = prompt('Edit task:', taskSpan.textContent);
@@ -177,6 +186,7 @@
             }
         }
 
+        // Function to delete a task
         function deleteTask(taskElement) {
             taskElement.remove();
         }
