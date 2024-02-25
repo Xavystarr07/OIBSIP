@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Authentication System</title>
     <style>
+        /* CSS Styles */
         body {
             font-family: Arial, sans-serif;
             display: flex;
@@ -59,6 +60,7 @@
 </head>
 
 <body>
+    <!-- Login Form -->
     <form id="loginForm">
         <h2>Login</h2>
         <label for="username">Username:</label>
@@ -70,6 +72,7 @@
         <button type="button" id="toggleFormBtn" onclick="toggleForm()">First time? Register</button>
     </form>
 
+    <!-- Register Form -->
     <form id="registerForm">
         <h2>Register</h2>
         <label for="newUsername">Username:</label>
@@ -82,6 +85,9 @@
     </form>
 
     <script>
+        // JavaScript Functions
+
+        // Function to toggle between login and register forms
         function toggleForm() {
             const loginForm = document.getElementById('loginForm');
             const registerForm = document.getElementById('registerForm');
@@ -98,12 +104,13 @@
             }
         }
 
+        // Function to handle login
         function login() {
             const username = document.getElementById('username').value;
             const password = document.getElementById('password').value;
             const errorMessage = document.getElementById('error-message');
 
-            // Implement your authentication logic here
+           
             // For simplicity, let's assume a username and password combination
             if (username === 'user' && password === 'pass') {
                 errorMessage.textContent = '';
@@ -115,16 +122,17 @@
             }
         }
 
+        // Function to handle registration
         function register() {
             const newUsername = document.getElementById('newUsername').value;
             const newPassword = document.getElementById('newPassword').value;
             const registerErrorMessage = document.getElementById('register-error-message');
 
-            // Implement your registration logic here
+    
             // For simplicity, let's assume successful registration
             registerErrorMessage.textContent = '';
             alert('Registration successful!');
-            // Redirect to StarrX_LP.html
+            // Redirects to StarrX_LP.html
             window.location.href = 'StarrX_LP.html';
         }
     </script>
