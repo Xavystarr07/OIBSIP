@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+    <title>Calculator</title>
+	
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap">
+    
+</head>
+<style>
+        body {
+            font-family: 'Orbitron', sans-serif;
+        }
+        .calculator {
+            width: 300px;
+            margin: 0 auto;
+            background: linear-gradient(90deg, blue, black);
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .input-area {
+            background-color: #fff; 
+            padding: 10px;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .result {
+            font-size: 24px;
+            color: #333; 
+            text-align: right;
+        }
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-gap: 10px;
+        }
+        .button {
+            font-size: 18px;
+            background: white; 
+            color: black; 
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .button:hover {
+            background-color: #04E197; 
+        }
+        .clear-button {
+            background-color: #f00; 
+            color: #fff; 
+        }
+        .equals-button {
+            background-color: green; 
+            color: #fff; 
+            grid-row: span 2; 
+        }
+        .operator-button {
+            text-align: center;
+        }
+    </style>
+<body>
+    <div class="calculator">
+        <div class="input-area">
+            <div class="result" id="result">0</div>
+            <button class="button clear-button" onclick="clearDisplay()">C</button>
+        </div>
+        <div class="buttons">
+            <button class="button" onclick="appendToDisplay('1')">1</button>
+            <button class="button" onclick="appendToDisplay('2')">2</button>
+            <button class="button" onclick="appendToDisplay('3')">3</button>
+            <button class="button operator-button" onclick="appendToDisplay('/')">/</button>
+            <button class="button" onclick="appendToDisplay('4')">4</button>
+            <button class="button" onclick="appendToDisplay('5')">5</button>
+            <button class="button" onclick="appendToDisplay('6')">6</button>
+            <button class="button operator-button" onclick="appendToDisplay('-')">-</button>
+            <button class="button" onclick="appendToDisplay('7')">7</button>
+            <button class="button" onclick="appendToDisplay('8')">8</button>
+            <button class="button" onclick="appendToDisplay('9')">9</button>
+            <button class="button operator-button" onclick="appendToDisplay('+')">+</button>
+            <button class="button" onclick="appendToDisplay('.')">.</button>
+            <button class="button" onclick="appendToDisplay('0')">0</button>
+            <button class="button equals-button" onclick="calculateResult()">=</button>
+            <button class="button operator-button" onclick="appendToDisplay('')"></button>
+        </div>
+    </div>
+
+    <script>
+        let currentDisplay = '';
+
+        function appendToDisplay(value) {
+            currentDisplay += value;
+            document.getElementById('result').textContent = currentDisplay;
+        }
+
+        function clearDisplay() {
+            currentDisplay = '';
+            document.getElementById('result').textContent = '0';
+        }
+
+        function calculateResult() {
+            try {
+                currentDisplay = eval(currentDisplay);
+                document.getElementById('result').textContent = currentDisplay;
+            } catch (error) {
+                document.getElementById('result').textContent = 'Error';
+            }
+        }
+    </script>
+</body>
+</html>

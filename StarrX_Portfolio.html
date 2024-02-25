@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Meta tags for character set and viewport -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Title of the webpage -->
+    <title>Xavier Mark Chetty - Portfolio</title>
+    <!-- External stylesheets for Font Awesome icons and Roboto font -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap">
+
+    <!-- Internal styles -->
+    <style>
+        /* Global styles for the body */
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            color: #333;
+            background: linear-gradient(90deg, #13C240, black);
+        }
+
+        /* Common styles for various sections with text center alignment */
+        header,
+        .profile-section,
+        .services-section,
+        .projects-section,
+        .social-section,
+        .review-section {
+            text-align: center;
+        }
+
+        /* Header styles */
+        header {
+            color: #fff;
+            padding: 20px;
+        }
+
+        /* Profile section styles */
+        .profile-section img {
+            border-radius: 50%;
+            max-width: 150px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+
+        p {
+            margin: 10px 0;
+        }
+
+        /* Styles for each section */
+        section {
+            padding: 20px;
+            box-sizing: border-box;
+            background: #fff;
+            margin: 10px 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Heading styles for sections */
+        h2,
+        .aboutme-section h2,
+        .services-section h2,
+        .contact-section h2,
+        .projects-section h2,
+        .social-section h2,
+        .review-section h2 {
+            color: #000;
+            font-size: 1.8em;
+            margin-bottom: 15px;
+        }
+
+        /* Styles for skills list */
+        ul.skills-list {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        ul.skills-list li {
+            background: #09BC7E;
+            color: #fff;
+            padding: 8px 15px;
+            margin: 8px;
+            border-radius: 5px;
+        }
+
+        /* Styles for services section */
+        .services-section .service {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .services-section .service .solution-container {
+            flex: 1;
+            padding: 20px;
+            text-align: center;
+            max-width: 70%;
+            box-sizing: border-box;
+            margin: 10px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .services-section .service .solution-container:hover {
+            transform: scale(1.05);
+        }
+
+        .services-section .service .solution-image {
+            width: 94%;
+            height: auto;
+            max-height: 149px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .services-section .service h3 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            color: #000;
+        }
+
+        .services-section .service .solution-description {
+            font-size: 16px;
+            color: #555;
+            line-height: 1.5;
+        }
+
+        /* Projects section styles */
+        .projects-section {
+            text-align: left;
+            margin-top: 40px;
+        }
+
+        .projects-section .project-header {
+            margin-bottom: 10px;
+        }
+
+        .projects-section h2 {
+            color: White;
+            font-size: 21px;
+            margin-bottom: 11px;
+            text-align: left;
+        }
+
+        .projects-section .project {
+            position: relative;
+            bottom: 10px;
+            left: 10px;
+        }
+
+        .projects-section .project a {
+            color: #000;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .projects-section .project a:hover {
+            text-decoration: underline;
+        }
+
+ /* Social icons section styles */
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            margin-top: 15px;
+        }
+
+        /* Social section styles */
+        .social-section {
+            text-align: center;
+            background: linear-gradient(45deg, #13C240, black);
+        }
+
+        .social-icons a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #000;
+            font-size: 18px;
+        }
+
+        .social-icons a:hover {
+            color: #09BC7E;
+        }
+
+        /* Review section styles */
+        .review-section .stars {
+            cursor: pointer;
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+       /* Updated styles for the review section */
+.review-section {
+    background:linear-gradient(90deg, #13C240, black);
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center; /* Center align the content */
+}
+
+.review-section h2 {
+    color: #000;
+    font-size: 1.8em;
+    margin-bottom: 15px;
+}
+
+.review-section .review-controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.review-section textarea {
+    width: 40%; /* Adjusted width and added padding */
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box; /* Ensure padding is included in the width */
+}
+
+.review-section .stars {
+    margin-bottom: 15px;
+}
+
+.review-section .star {
+    display: inline-block;
+    margin-right: 5px;
+    transition: color 0.3s ease-in-out;
+    cursor: pointer;
+    font-size: 24px;
+}
+
+.review-section .review-submit-btn {
+    background: green;
+    color: #fff;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease-in-out;
+	margin-bottom: 20px; 
+}
+
+.review-section .review-submit-btn:hover {
+    background: #004d00;
+}
+
+#reviewMessage {
+    margin-top: 15px;
+    font-size: 16px;
+}
+
+
+
+        /* Booking form styles */
+        .booking-form {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        .booking-form label {
+            display: block;
+            margin-bottom: 15px;
+            color: #333;
+            font-size: 18px;
+        }
+
+        .booking-form select {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .booking-form button.booking-submit-btn {
+            display: inline-block;
+            background: linear-gradient(90deg, #13C240, black);
+            color: #fff;
+            padding: 15px 25px;
+            text-decoration: none;
+            border-radius: 10px;
+            font-size: 18px;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .booking-form button.booking-submit-btn:hover {
+            background: #004d00;
+        }
+
+        /* Extended Booking form styles */
+        .booking-form-extended {
+            display: inline-block;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+		.booking-form-extended button.booking-submit-btn {
+    display: inline-block;
+    background: #13C240; 
+    color: #fff;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 10px; /* Slightly curved border */
+    font-size: 10px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.booking-form-extended button.booking-submit-btn:hover {
+    background: teal; 
+}
+
+        /* Close button for extended booking form */
+        .booking-form-extended .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .booking-form-extended label {
+            display: block;
+            margin-bottom: 15px;
+            color: #333;
+            font-size: 18px;
+        }
+
+        .booking-form-extended select,
+        .booking-form-extended input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+         
+		  /* Keyframes for sliding animation */
+        @keyframes slideIn {
+            0% {
+                transform: translateX(100%); /* Start off-screen to the right */
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(0); /* Slide in to the original position */
+                opacity: 1;
+            }
+        }
+        /* Styles for the "Connect with me" section */
+        .contact {
+            position: absolute;
+            bottom: 390px;
+            right: 24px;
+            font-size: 18px;
+            background: linear-gradient(90deg, #13C240, black);
+            color: #fff;
+            border-radius: 15px;
+            padding: 1px;
+            height: 30px; /* Sets initial height */
+            overflow: hidden;
+            transition: height 0.5s ease-out; /* Transition for smooth height change */
+			animation: slideIn 1.5s forwards; /* Applys the slideIn keyframes */
+        }
+
+        .contact p {
+            margin: 0;
+            font-family: 'Roboto';
+            text-align: left;
+            color: #fff;
+        }
+
+        .contact p:first-child {
+            font-size: 26px;
+            text-align: center;
+            font-family: 'Roboto';
+            color: #fff;
+        }
+
+        .contact-link {
+            display: block;
+            margin-top: 10px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+            transition: color 0.3s ease-in-out;
+        }
+
+        .contact-link:hover {
+            color: #09BC7E;
+        }
+
+
+        /* Add a new class to handle expanded state */
+        .contact.contact-expanded {
+            height: auto;
+        }
+        /* About me section styles */
+        .aboutme-section {
+            text-align: justify;
+            max-width: 800px;
+            margin: left;
+        }
+
+        .aboutme-section p {
+            font-size: 18px;
+            font-family: sans-serif;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+		
+		/* Copyright styles */
+.copyright {
+    text-align: center;
+    margin-top: 20px; /* Adjust margin as needed */
+    color: black; /* Adjust color as needed */
+    font-size: 14px; /* Adjust font size as needed */
+}
+
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <!-- Project section -->
+        <div class="projects-section">
+            <div class="project-header"></div>
+            <div class="project">
+                <h2>My projects</h2>
+                <a href="StarrX_LP.html" target="_blank">StarrX</a>
+            </div>
+            <!-- Add more projects as needed -->
+        </div>
+        <!-- Contact information -->
+<div class="contact" id="contactSection" onclick="toggleContactSection()">
+    <p>Connect with me</p>
+    <!-- Link to open email client -->
+    <a href="mailto:xavierchetty07@gmail.com" target="_blank" class="contact-link">✉ Email: xavierchetty07@gmail.com</a>
+    <!-- Link to initiate a phone call -->
+    <a href="tel:+0711346294" target="_blank" class="contact-link">☎ Phone: 0711346294</a>
+</div>
+
+
+
+
+        <!-- Profile section -->
+        <div class="profile-section">
+            <img src="StarrX_Profile_PF_0.jpg" alt="Xavier Mark Chetty">
+            <h1>Xavier Mark Chetty</h1>
+            <p>Web Developer | App Developer | Ethical Hacker | Cybersecurity Specialist</p>
+        </div>
+    </header>
+
+    <!-- About me section -->
+    <section class="aboutme-section">
+        <h2>About me</h2>
+        <p>
+            I am a junior IT specialist with a passion for crafting responsive and visually appealing websites, building
+            robust and user-friendly applications, and strengthening digital defenses through ethical hacking. My
+            educational background includes a Bachelor of Science in Information Technology from Richfield Graduate
+            Institute of Technology.
+        </p>
+        <p>
+            As a dedicated professional, I have gained 2 years and 3 months of experience as a Junior Web Developer. I
+            possess a diverse set of skills, including HTML, CSS, JavaScript, Python, C++, C#, Java, PHP, and Vb.net. My
+            goal is to contribute to the ever-evolving field of technology and make a positive impact through my work.
+        </p>
+        <!-- Booking link -->
+        <a href="#" id="bookingLink" class="booking-submit-btn">Book an Appointment</a>
+        <!-- Extended Booking form -->
+        <div class="booking-form-extended" id="bookingFormExtended" style="display: none;">
+            <!-- Close button at the top right -->
+            <span class="close-btn" onclick="closeBookingFormExtended()">×</span>
+
+            <!-- Select a service -->
+            <label for="servicesExtended">Select a service:</label>
+            <select id="servicesExtended" name="servicesExtended" required>
+                <option value="web-development">Web Development</option>
+                <option value="app-development">App Development</option>
+                <option value="ethical-hacking">Ethical Hacking</option>
+                <option value="cybersecurity">Cybersecurity Consultation</option>
+            </select>
+
+            <!-- Date and time selection -->
+            <label for="datetimeExtended">Choose a date and time:</label>
+            <input type="datetime-local" id="datetimeExtended" name="datetimeExtended" required>
+
+            <!-- User details -->
+            <label for="fullnameExtended">Full Name:</label>
+            <input type="text" id="fullnameExtended" name="fullnameExtended" maxlength="60" required>
+
+            <label for="emailExtended">Email:</label>
+            <input type="email" id="emailExtended" name="emailExtended" placeholder="John7@gmail.com" required>
+
+            <label for="phoneExtended">Phone:</label>
+            <input type="tel" id="phoneExtended" name="phoneExtended" maxlength="10" required>
+
+            <!-- Submit button -->
+            <button class="booking-submit-btn" onclick="submitExtendedBookingForm()">Submit</button>
+        </div>
+
+        <!-- Short Booking form -->
+        <div class="booking-form" id="bookingFormShort" style="display: none;">
+            <!-- Select a service -->
+            <label for="servicesShort">Select a service:</label>
+            <select id="servicesShort" name="servicesShort" required>
+                <option value="web-development">Web Development</option>
+                <option value="app-development">App Development</option>
+                <option value="ethical-hacking">Ethical Hacking</option>
+                <option value="cybersecurity">Cybersecurity Consultation</option>
+            </select>
+
+            <!-- Date and time selection -->
+            <label for="datetimeShort">Choose a date and time:</label>
+            <input type="datetime-local" id="datetimeShort" name="datetimeShort" required>
+
+            <!-- Submit button -->
+            <button class="booking-submit-btn" onclick="submitBookingForm()">Submit</button>
+        </div>
+    </section>
+
+    <!-- Services section -->
+    <section class="services-section">
+        <h2>My Services</h2>
+        <div class="service">
+            <!-- Service containers with images, titles, and descriptions -->
+            <div class="solution-container">
+                <img src="StarrX_WebD_PF_1.jpg" alt="Website Development" class="solution-image">
+                <h3>Website Development</h3>
+                <p class="solution-description">Crafting responsive and visually appealing websites tailored to your needs.</p>
+            </div>
+
+            <div class="solution-container">
+                <img src="StarrX_AppD_PF_2.jpg" alt="Application Development" class="solution-image">
+                <h3>Application Development</h3>
+                <p class="solution-description">Building robust and user-friendly applications for various platforms.</p>
+            </div>
+
+            <div class="solution-container">
+                <img src="StarrX_Ethi_PF_4.jpg" alt="Ethical Hacking" class="solution-image">
+                <h3>Ethical Hacking</h3>
+                <p class="solution-description">Identifying and fixing security vulnerabilities to strengthen your digital defenses.</p>
+            </div>
+
+            <div class="solution-container">
+                <img src="StarrX_Cyber_PF_3.jpg" alt="Cyber Security" class="solution-image">
+                <h3>Cybersecurity</h3>
+                <p class="solution-description">Identifying and fixing security vulnerabilities to strengthen your digital defenses.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Review and Social section -->
+<div class="review-section">
+    <h2>Share your thoughts!</h2>
+    <!-- Star rating system -->
+    <div class="stars" onmouseover="highlightStars(event)" onmouseout="resetStars()">
+        <span class="star" onclick="submitReview(1)" data-value="1">★</span>
+        <span class="star" onclick="submitReview(2)" data-value="2">★</span>
+        <span class="star" onclick="submitReview(3)" data-value="3">★</span>
+        <span class="star" onclick="submitReview(4)" data-value="4">★</span>
+        <span class="star" onclick="submitReview(5)" data-value="5">★</span>
+    </div>
+
+   <!-- Submit Review button and comments textarea -->
+<div class="review-controls">
+    <!-- Comments textarea -->
+    <textarea id="comments" placeholder="Add your comments..."></textarea>
+
+    <!-- Submit Review button -->
+    <button type="button" onclick="submitReview()" class="review-submit-btn">Submit Review</button>
+    <p id="reviewMessage"></p>
+</div>
+
+
+    <p id="reviewMessage"></p>
+
+        <h2>Connect with me through socials</h2>
+        <!-- Social icons with links -->
+        <div class="social-icons">
+            <a href="your_facebook_link" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="your_instagram_link" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="your_tiktok_link" target="_blank"><i class="fab fa-tiktok"></i></a>
+            <a href="your_linkedin_link" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+            <a href="your_twitter_link" target="_blank"><i class="fab fa-twitter"></i></a>
+        </div>
+    </div>
+
+    <!-- Copyright information -->
+<div class="copyright">
+    <p>&copy; 2024 Xavier Mark Chetty. All rights reserved.</p>
+</div>
+
+
+    <!-- JavaScript for booking form functionality -->
+    <script>
+        // Booking form functionality
+        const bookingForm = document.getElementById('bookingFormShort');
+        const bookingFormExtended = document.getElementById('bookingFormExtended');
+        const bookingLink = document.getElementById('bookingLink');
+
+        // Function to open short booking form
+        function openBookingForm() {
+            bookingForm.style.display = 'block';
+        }
+
+        // Function to open extended booking form
+        function openExtendedBookingForm() {
+            bookingFormExtended.style.display = 'block';
+        }
+
+        // Function to close short booking form
+        function closeBookingForm() {
+            bookingForm.style.display = 'none';
+        }
+
+        // Function to close extended booking form
+        function closeBookingFormExtended() {
+            bookingFormExtended.style.display = 'none';
+        }
+
+        // Function to submit short booking form
+        function submitBookingForm() {
+            alert('Booking submitted!');
+            closeBookingForm();
+        }
+
+        // Function to submit extended booking form
+        function submitExtendedBookingForm() {
+            alert('Extended booking submitted successfully!');
+            closeBookingFormExtended();
+        }
+
+        // Event listener for booking link
+        bookingLink.addEventListener('click', openExtendedBookingForm);
+    </script>
+
+    <script>
+        // Function to highlight stars on mouseover
+        function highlightStars(event) {
+            var stars = document.querySelectorAll('.star');
+            var highlightedStars = event.target.dataset.value;
+            stars.forEach(function (star, index) {
+                if (index < highlightedStars) {
+                    star.style.color = 'gold';
+                } else {
+                    star.style.color = 'black';
+                }
+            });
+        }
+
+        // Function to reset star colors on mouseout
+        function resetStars() {
+            var stars = document.querySelectorAll('.star');
+            stars.forEach(function (star) {
+                star.style.color = 'black';
+            });
+        }
+
+        // Function to submit review
+function submitReview(stars) {
+    var reviewMessage = document.getElementById('reviewMessage');
+    var comments = document.getElementById('comments').value;
+
+    // Check if stars are selected
+    if (stars) {
+        reviewMessage.innerHTML = 'Review submitted successfully with ' + stars + ' stars.';
+        if (comments) {
+            reviewMessage.innerHTML += '<br>Comments: ' + comments;
+        }
+    } else {
+        reviewMessage.innerHTML = 'Please select a star rating before submitting your review.';
+    }
+}
+
+
+    </script>
+<script>
+    // Function to toggle the visibility of the "Connect with me" section
+function toggleContactSection() {
+    var contactSection = document.getElementById('contactSection');
+
+    // Toggle the expanded class
+    contactSection.classList.toggle('contact-expanded');
+}
+
+</script>
+
+
+
+
+</body>
+
+</html>

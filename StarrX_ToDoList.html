@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do App</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f0f0;
+            text-align: center;
+            margin: 20px;
+        }
+
+        #todo-container {
+            width: 300px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+
+        h2 {
+            color: #3498db;
+        }
+
+        input {
+            width: 70%;
+            padding: 8px;
+            margin-right: 5px;
+        }
+
+        button {
+            cursor: pointer;
+            padding: 8px;
+            border: none;
+            border-radius: 5px;
+            background-color: #3498db;
+            color: #fff;
+            margin-left: 5px;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        #pending-tasks,
+        #completed-tasks {
+            margin-top: 20px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+        }
+
+        .completed-task {
+            text-decoration: line-through;
+            color: #777;
+        }
+
+        .task-buttons button {
+            margin-right: 5px;
+        }
+		
+		.timestamp {
+            font-size: 12px;
+            color: #777;
+    </style>
+</head>
+
+<body>
+
+    <div id="todo-container">
+        <h2>To-Do App</h2>
+        <input type="text" id="newTask" placeholder="Add a new task">
+        <button onclick="addTask()">Add</button>
+
+        <div id="pending-tasks">
+            <h3>Pending Tasks</h3>
+            <ul id="pendingList"></ul>
+        </div>
+
+        <div id="completed-tasks">
+            <h3>Completed Tasks</h3>
+            <ul id="completedList"></ul>
+        </div>
+    </div>
+
+    <script>
+        function addTask() {
+            const newTaskInput = document.getElementById('newTask');
+            const taskText = newTaskInput.value.trim();
+
+            if (taskText !== '') {
+                const task = createTaskElement(taskText);
+
+                document.getElementById('pendingList').appendChild(task);
+                newTaskInput.value = '';
+            }
+        }
+
+        function createTaskElement(taskText) {
+            const li = document.createElement('li');
+            const taskSpan = document.createElement('span');
+            taskSpan.textContent = taskText;
+
+            const timestampSpan = document.createElement('span');
+            timestampSpan.classList.add('timestamp');
+            timestampSpan.textContent = getFormattedTimestamp();
+
+            const buttonsDiv = document.createElement('div');
+            buttonsDiv.classList.add('task-buttons');
+
+            const completeButton = createButton('Complete', function () {
+                completeTask(li);
+            });
+
+            const editButton = createButton('Edit', function () {
+                editTask(li);
+            });
+
+            const deleteButton = createButton('Delete', function () {
+                deleteTask(li);
+            });
+
+            buttonsDiv.appendChild(completeButton);
+            buttonsDiv.appendChild(editButton);
+            buttonsDiv.appendChild(deleteButton);
+
+            li.appendChild(taskSpan);
+            li.appendChild(timestampSpan);
+            li.appendChild(buttonsDiv);
+
+            return li;
+        }
+
+        function getFormattedTimestamp() {
+            const now = new Date();
+            const options = { hour: 'numeric', minute: 'numeric', second: 'numeric' };
+            return now.toLocaleString('en-US', options);
+        }
+
+        function createButton(text, clickHandler) {
+            const button = document.createElement('button');
+            button.textContent = text;
+            button.onclick = clickHandler;
+            return button;
+        }
+
+        function completeTask(taskElement) {
+            taskElement.classList.toggle('completed-task');
+            const completeButton = taskElement.querySelector('.task-buttons button:nth-child(1)');
+            completeButton.textContent = taskElement.classList.contains('completed-task') ? 'Undo' : 'Complete';
+
+            const destinationList = taskElement.classList.contains('completed-task') ? 'completedList' : 'pendingList';
+            document.getElementById(destinationList).appendChild(taskElement);
+        }
+
+        function editTask(taskElement) {
+            const taskSpan = taskElement.querySelector('span');
+            const newTaskText = prompt('Edit task:', taskSpan.textContent);
+
+            if (newTaskText !== null) {
+                taskSpan.textContent = newTaskText;
+            }
+        }
+
+        function deleteTask(taskElement) {
+            taskElement.remove();
+        }
+    </script>
+
+</body>
+
+</html>
